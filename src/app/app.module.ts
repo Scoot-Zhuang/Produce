@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
 import {HttpModule} from '@angular/http';
 import {ProductService} from './shared/product.service';
+import { ProductFilterPipe } from './pipe/product-filter.pipe';
 
 const routeConfig: Routes = [
   {path: '', component: HomeComponent},
@@ -31,13 +32,15 @@ const routeConfig: Routes = [
     ProductComponent,
     StarsComponent,
     ProductDetailComponent,
-    HomeComponent
+    HomeComponent,
+    ProductFilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routeConfig)
+    RouterModule.forRoot(routeConfig),
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
