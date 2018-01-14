@@ -10,7 +10,15 @@ import { SearchComponent } from './search/search.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HomeComponent } from './home/home.component';
+import {RouterModule, Routes} from '@angular/router';
+import {HttpModule} from '@angular/http';
 
+const routeConfig: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'product/:productTitle', component: ProductDetailComponent}
+  ];
 
 @NgModule({
   declarations: [
@@ -20,11 +28,15 @@ import { StarsComponent } from './stars/stars.component';
     SearchComponent,
     CarouselComponent,
     ProductComponent,
-    StarsComponent
+    StarsComponent,
+    ProductDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(routeConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
