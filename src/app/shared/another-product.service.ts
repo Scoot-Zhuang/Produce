@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Product, ProductService} from './product.service';
+import {LoggerService} from './logger.service';
 
 @Injectable()
 export class AnotherProductService implements ProductService {
@@ -7,6 +8,6 @@ export class AnotherProductService implements ProductService {
     return new Product(1, 'Vivo', 4899, '你的手机');
   }
 
-  constructor() { }
+  constructor(public loggerService: LoggerService) { }
 
 }
