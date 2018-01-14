@@ -21,5 +21,8 @@ export class ProductDetailComponent implements OnInit {
     this.product = this.productService.getProductById(productId);
     this.comments = this.productService.getCommentForProduct(productId);
   }
+  ngClickNice(){
+    this.comments.niceNum+1;
+  }
 
 }

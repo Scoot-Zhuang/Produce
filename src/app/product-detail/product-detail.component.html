@@ -20,6 +20,8 @@
       <app-stars [rating]="comment.rating"></app-stars>
       <span>{{comment.userName}}</span>
       <span class="pull-right">{{comment.time}}</span>
+      <br/>
+      <span class="pull-right">👍赞<span (click)="ngClickNice()">({{comment.niceNum}})</span></span>
       <p></p>
       <span>{{comment.content}}</span>
     </div>
